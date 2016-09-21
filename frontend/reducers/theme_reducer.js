@@ -3,6 +3,7 @@ import merge from 'lodash/merge';
 
 const ThemeReducer = (state = {background: "", quote: ""}, action) => {
   let newState;
+  debugger
   switch (action.type) {
     case ThemeConstants.RECEIVE_BACKGROUND:
       newState = merge({}, state);

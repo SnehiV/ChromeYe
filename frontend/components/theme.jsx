@@ -1,5 +1,6 @@
 import React from 'react';
 import { requestBackground, requestQuote } from '../actions/theme_actions';
+import Feed from './feed';
 
 class Theme extends React.Component{
   constructor(props){
@@ -47,6 +48,9 @@ class Theme extends React.Component{
     return(
       <div className='theme' style={this.themeStyle}>
         <h1 className='quote'>{this.state.quote}</h1>
+        <div className='content'>
+          <Feed feed={this.props.feed} fetchFeed={this.props.fetchFeed}/>
+        </div>
       </div>
     );
   }
