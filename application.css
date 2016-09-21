@@ -1,0 +1,19 @@
+.new-tab {
+  height: 100vh;
+}
+
+.theme {
+  height: 100%
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+
+}
+
+.quote {
+  font-family: 'Bungee', cursive;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #019;
+  color: white;
+  text-align: center;
+  opacity: 0.75;
+}

@@ -1,0 +1,13 @@
+  {
+    "manifest_version": 2,
+    "name": "ChromeYe",
+    "description": "This extension creates a Kanye West themed new tab page that includes a search and weather widget.",
+    "version": "1.0.0",
+
+    "chrome_url_overrides": {
+      "newtab": "index.html"
+    },
+    "permissions": [
+      "https://www.google.com/"
+    ]
+  }
