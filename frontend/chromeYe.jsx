@@ -4,13 +4,10 @@ import Root from './components/root';
 
 //testing
 import configureStore from './store/store';
-import { requestBackground, requestQuote } from './actions/theme_actions';
-import { fetchWeather } from './util/weather_api_util';
+import { requestFeed } from './actions/feed_actions';
 document.addEventListener("DOMContentLoaded", () => {
   const store = window.store = configureStore();
-  window.requestBackground = requestBackground;
-  window.fetchWeather = fetchWeather;
-  window.requestQuote = requestQuote;
+  window.requestFeed = requestFeed;
   const rootEl = document.getElementById('root');
   ReactDOM.render(<div className='new-tab'><Root store={store} /></div>, rootEl);
 });

@@ -9,12 +9,6 @@ export const fetchImage = (success, error) => {
   };
   xmlHttp.open("GET", 'https://yepi.io/api/image', true);
   xmlHttp.send(null);
-  //
-  // $.ajax({
-  //   type: 'GET',
-  //   url: 'https://yepi.io/api/image',
-  //   success: success
-  // });
 };
 
 export const fetchQuote = (success, error) => {
@@ -26,10 +20,4 @@ export const fetchQuote = (success, error) => {
   };
   xmlHttp.open("GET", 'https://yepi.io/api/quote', true);
   xmlHttp.send(null);
-  // $.ajax({
-  //   type: 'GET',
-  //   url: 'https://yepi.io/api/quote',
-  //   success: success,
-  //   error: error
-  // });
 };

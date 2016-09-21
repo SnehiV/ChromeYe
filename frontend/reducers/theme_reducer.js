@@ -1,4 +1,4 @@
-import { ThemeConstants, receiveBackground, receiveQuote } from '../actions/theme_actions';
+import { ThemeConstants } from '../actions/theme_actions';
 import merge from 'lodash/merge';
 
 const ThemeReducer = (state = {background: "", quote: ""}, action) => {
