@@ -1,13 +1,13 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import Root from './components/root';
+import configureStore from './store/store';
 
 //testing
-import configureStore from './store/store';
-import { requestFeed } from './actions/feed_actions';
+import { requestConcerts } from './actions/concert_actions';
 document.addEventListener("DOMContentLoaded", () => {
   const store = window.store = configureStore();
-  window.requestFeed = requestFeed;
+  window.requestConcerts = requestConcerts;
   const rootEl = document.getElementById('root');
   ReactDOM.render(<div className='new-tab'><Root store={store} /></div>, rootEl);
 });

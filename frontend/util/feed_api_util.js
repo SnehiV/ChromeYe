@@ -18,6 +18,6 @@ export const fetchFeed = (success) => {
       success(feed);
     }
   };
-  xmlHttp.open("GET", 'http://rss2json.com/api.json?rss_url=http%3A%2F%2Fcompanies.einnews.com%2Frss%2FpV4hTb7KLoNAdavF', true);
+  xmlHttp.open("GET", 'http://rss2json.com/api.json?rss_url=http%3A%2F%2Fmusic.einnews.com%2Frss%2FZK-Wkwa0fPFuAwDY', true);
   xmlHttp.send();
 };

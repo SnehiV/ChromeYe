@@ -34,7 +34,7 @@ class Feed extends React.Component{
   }
 
   filterFeed(){
-    let copy = this.state.feed.filter((item, idx) => {
+    let copy = this.state.feed.slice(0, 10).filter((item, idx) => {
       for (var i = idx + 1; i < this.state.feed.length; i++) {
         return !this.similarTitles(item.title, this.state.feed[i].title);
       }
@@ -42,8 +42,16 @@ class Feed extends React.Component{
     return copy;
   }
 
+  everyOther(){
+    let newFeed = [];
+    for (var i = 0; i < this.state.feed.length; i = i + 3) {
+      newFeed.push(this.state.feed[i]);
+    }
+    return newFeed;
+  }
+
   render(){
-    let feedItems = this.filterFeed().map((item, idx) => {
+    let feedItems = this.everyOther().map((item, idx) => {
       let date = item.pubDate.slice(5,16);
       let title = item.title;
       let link = <a href={item.link}>{title}</a>;
@@ -57,6 +65,7 @@ class Feed extends React.Component{
 
     return(
       <div className='feed'>
+        <h3 className='list-header'>My Beautiful Dark Twisted Feed</h3>
         <ul className='feed-list'>
           {feedItems}
         </ul>
