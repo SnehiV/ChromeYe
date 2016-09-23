@@ -10,13 +10,24 @@ class Concerts extends React.Component{
   }
 
   componentWillMount() {
-    this.props.fetchConcerts();
+    let self = this;
+    chrome.storage.local.get(storage => {
+      if (typeof storage.concerts === "undefined") {
+        self.props.fetchConcerts();
+      } else {
+        self.setState({concerts: storage.concerts});
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      concerts: nextProps.concerts
-    });
+     if (this.state.concerts.length === 0 && nextProps.concerts.length > 0) {
+       chrome.storage.local.set({'concerts': nextProps.concerts});
+
+       this.setState({
+         concerts: nextProps.concerts
+       });
+     }
   }
 
   concertItems(concerts) {

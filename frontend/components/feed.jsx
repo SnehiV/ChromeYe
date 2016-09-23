@@ -1,4 +1,5 @@
 import React from 'react';
+import { AllHtmlEntities } from 'html-entities';
 
 
 class Feed extends React.Component{
@@ -56,7 +57,7 @@ class Feed extends React.Component{
   render(){
     let feedItems = this.everyOther().map((item, idx) => {
       let date = item.pubDate.slice(5,16);
-      let title = item.title;
+      let title = AllHtmlEntities.decode(AllHtmlEntities.decode(item.title));
       let link = <a href={item.link}>{title}</a>;
       return (
         <li className='feed-item' key={title + idx}>

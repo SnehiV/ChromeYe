@@ -3,7 +3,6 @@ import React from 'react';
 import Root from './components/root';
 import configureStore from './store/store';
 
-//testing
 import { requestConcerts } from './actions/concert_actions';
 document.addEventListener("DOMContentLoaded", () => {
   const store = window.store = configureStore();

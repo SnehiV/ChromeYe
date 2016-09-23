@@ -52,7 +52,6 @@ class Theme extends React.Component{
         justifyContent: 'space-around'
       };
     }
-    console.log(this.state.quote);
     return(
       <div className='theme' style={this.themeStyle}>
         <h1 className='quote'>{this.state.quote}</h1>
