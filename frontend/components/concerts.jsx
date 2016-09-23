@@ -23,7 +23,7 @@ class Concerts extends React.Component{
     let items = concerts.map((concert, idx) => {
       let date = new Date(concert.datetime_local);
       let dateString = `${date.getDate()} ${date.toString().slice(4, 7)} ${date.getFullYear()}`;
-      let locationString = `in ${concert.venue.display_location} at ${concert.venue.name}`;
+      let locationString = `at ${concert.venue.name} in ${concert.venue.display_location}`;
       let urlString = concert.url;
       return (
         <li className='feed-item' key={urlString}>
@@ -32,20 +32,21 @@ class Concerts extends React.Component{
         </li>
       );
     });
+    return items;
   }
 
   concertFilter() {
     if (this.state.concerts.length === 0) {
-      return <h4>No shows near you</h4>;
+      return <h4 className='no-shows'>No shows near you</h4>;
     } else if (this.state.concerts.length > 5) {
       return (
-        <ul className='feed-list'>
+        <ul className='feed-list' style={this.feedListStyle}>
           {this.concertItems(this.state.concerts.slice(0, 5))}
         </ul>
       );
     } else {
       return (
-        <ul className='feed-list'>
+        <ul className='feed-list' style={this.feedListStyle}>
           {this.concertItems(this.state.concerts)}
         </ul>
       );
@@ -55,7 +56,7 @@ class Concerts extends React.Component{
   render() {
     return(
       <div className='feed'>
-        <h3 className='list-header'>The Shows of Pablo</h3>
+        <h3 className='list-header'>The Shows of Pablo (near you)</h3>
         {this.concertFilter()}
       </div>
     );

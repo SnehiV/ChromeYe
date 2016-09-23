@@ -8,7 +8,7 @@ export const fetchConcerts = (success) => {
         success(data);
       }
     };
-    xmlHttp.open("GET", `https://api.seatgeek.com/2/events?${geo}&per_page=100&format=json&performers.slug=kanye-west`, true);
+    xmlHttp.open("GET", `https://api.seatgeek.com/2/events?client_id=NTc3Mzg1OXwxNDc0NTA1NTQw&${geo}&per_page=100&format=json&performers.slug=kanye-west`, true);
     xmlHttp.send(null);
   };
 
@@ -16,8 +16,6 @@ export const fetchConcerts = (success) => {
   let geoSucess = (position) => {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    console.log(lat);
-    console.log(lon);
     geoString = `lat=${lat}&lon=${lon}&range=200mi`;
     apiCall(geoString);
   };

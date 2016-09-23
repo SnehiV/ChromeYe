@@ -11,9 +11,13 @@ class Theme extends React.Component{
       quote: ""
     };
     this.themeStyle = {
-      backgroundColor: "white",
+      backgroundColor: 'white',
       height: "100%",
-      opacity: 0};
+      opacity: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-around'
+    };
   }
 
 
@@ -42,7 +46,10 @@ class Theme extends React.Component{
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         height: "100%",
-        opacity: 1
+        opacity: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-around'
       };
     }
     console.log(this.state.quote);

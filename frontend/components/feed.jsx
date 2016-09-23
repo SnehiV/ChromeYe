@@ -7,6 +7,9 @@ class Feed extends React.Component{
     this.state = {
       feed: []
     };
+    this.feedListStyle = {
+      opacity: 0
+    };
   }
 
   componentWillMount(){
@@ -63,10 +66,14 @@ class Feed extends React.Component{
       );
     });
 
+    if (this.state.feed.length !== 0) {
+      this.feedListStyle = { opacity: 1 };
+    }
+
     return(
       <div className='feed'>
         <h3 className='list-header'>My Beautiful Dark Twisted Feed</h3>
-        <ul className='feed-list'>
+        <ul className='feed-list' style={this.feedListStyle}>
           {feedItems}
         </ul>
       </div>
