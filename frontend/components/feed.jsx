@@ -14,13 +14,24 @@ class Feed extends React.Component{
   }
 
   componentWillMount(){
-    this.props.fetchFeed();
+    let self = this;
+    chrome.storage.local.get(storage => {
+      if (typeof storage.feed === "undefined") {
+        this.props.fetchFeed();
+      } else {
+        self.setState({feed: storage.feed.feed});
+      }
+    });
   }
 
   componentWillReceiveProps(nextProps){
-    this.setState({
-      feed: nextProps.feed
-    });
+    if (this.state.feed.length === 0 && nextProps.feed.length > 0) {
+      chrome.storage.local.set({'feed': {feed: nextProps.feed, time: Date.now()}});
+
+      this.setState({
+        feed: nextProps.feed
+      });
+    }
   }
 
   similarTitles(title1, title2){
