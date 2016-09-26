@@ -8,8 +8,10 @@ class Theme extends React.Component{
     super(props);
     this.state = {
       background: "",
-      quote: ""
+      quote: "",
+      videoIndex: Math.floor(Math.random() * 61),
     };
+    this.videoURL = `http://www.kanyewest.com/`;
     this.themeStyle = {
       backgroundColor: 'white',
       height: "100%",
@@ -56,12 +58,24 @@ class Theme extends React.Component{
       <div className='theme' style={this.themeStyle}>
         <h1 className='quote'>{this.state.quote}</h1>
         <div className='content'>
-          <Feed feed={this.props.feed} fetchFeed={this.props.fetchFeed} />
-          <Concerts concerts={this.props.concerts} fetchConcerts={this.props.fetchConcerts} />
+          <div className='sub-content'>
+            <Feed feed={this.props.feed} fetchFeed={this.props.fetchFeed} />
+          </div>
+          <div className='sub-content'>
+            <div className='yeButton-container'>
+              <h3 className='list-header'>Ye Button</h3>
+              <a href={this.videoURL} target="_blank" className="yeButton">Ye</a>
+            </div>
+            <Concerts concerts={this.props.concerts} fetchConcerts={this.props.fetchConcerts} />
+          </div>
         </div>
       </div>
     );
   }
 }
+
+<a href="#" class="yeButton">red</a>
+
+
 
 export default Theme;

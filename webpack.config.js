@@ -2,9 +2,9 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: "./frontend/chromeYe.jsx",
+  entry: "./lib/frontend/chromeYe.jsx",
   output: {
-    path: path.join(__dirname, "scripts"),
+    path: path.join(__dirname, "lib"),
     filename: "bundle.js"
   },
   module: {

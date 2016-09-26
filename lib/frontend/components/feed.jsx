@@ -84,7 +84,7 @@ class Feed extends React.Component{
 
     return(
       <div className='feed'>
-        <h3 className='list-header'>My Beautiful Dark Twisted Feed</h3>
+        <h3 className='list-header'>My Beautiful Dark Twisted News Feed</h3>
         <ul className='feed-list' style={this.feedListStyle}>
           {feedItems}
         </ul>
