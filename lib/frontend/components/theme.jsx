@@ -34,10 +34,14 @@ class Theme extends React.Component{
       img.src = nextProps.theme.background;
       img.onload = () => {
         this.setState({
-          background: nextProps.theme.background,
-          quote: nextProps.theme.quote,
+          background: nextProps.theme.background
         });
       };
+    }
+    if (nextProps.theme.quote !== "") {
+      this.setState({
+        quote: nextProps.theme.quote
+      });
     }
   }
 
