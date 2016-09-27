@@ -2,6 +2,7 @@ import React from 'react';
 import { requestBackground, requestQuote } from '../actions/theme_actions';
 import Feed from './feed';
 import Concerts from './concerts';
+import YeButton from './yeButton';
 
 class Theme extends React.Component{
   constructor(props){
@@ -9,9 +10,7 @@ class Theme extends React.Component{
     this.state = {
       background: "",
       quote: "",
-      videoIndex: Math.floor(Math.random() * 61),
     };
-    this.videoURL = `http://www.kanyewest.com/`;
     this.themeStyle = {
       backgroundColor: 'white',
       height: "100%",
@@ -29,6 +28,7 @@ class Theme extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
+
     if (nextProps.theme.background !== "") {
       let img = new Image();
       img.src = nextProps.theme.background;
@@ -38,6 +38,7 @@ class Theme extends React.Component{
         });
       };
     }
+
     if (nextProps.theme.quote !== "") {
       this.setState({
         quote: nextProps.theme.quote
@@ -66,10 +67,7 @@ class Theme extends React.Component{
             <Feed feed={this.props.feed} fetchFeed={this.props.fetchFeed} />
           </div>
           <div className='sub-content'>
-            <div className='yeButton-container'>
-              <h3 className='list-header'>Ye Button</h3>
-              <a href={this.videoURL} target="_blank" className="yeButton">Ye</a>
-            </div>
+            <YeButton videos={this.props.videos} fetchVideos={this.props.fetchVideos} />
             <Concerts concerts={this.props.concerts} fetchConcerts={this.props.fetchConcerts} />
           </div>
         </div>
@@ -77,8 +75,6 @@ class Theme extends React.Component{
     );
   }
 }
-
-<a href="#" class="yeButton">red</a>
 
 
 

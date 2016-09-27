@@ -23,10 +23,21 @@ const concertUpdate = () => {
   });
 };
 
+const videoUpdate = () => {
+  chrome.storage.local.get(storage => {
+    if (typeof storage.videos !== "undefined") {
+      if (((Date.now() - storage.videos.time) /1000 /3600) > 72) {
+        chrome.storage.local.remove('videos')
+      }
+    }
+  });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   feedUpdate();
   concertUpdate();
-  const store = window.store = configureStore();
+  videoUpdate();
+  const store = configureStore();
   const rootEl = document.getElementById('root');
   ReactDOM.render(<div className='new-tab'><Root store={store} /></div>, rootEl);
 });

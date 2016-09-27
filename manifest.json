@@ -1,19 +1,21 @@
   {
     "manifest_version": 2,
     "name": "ChromeYe",
-    "description": "This extension creates a Kanye West themed new tab page that includes a search and weather widget.",
-    "version": "0.0.1",
+    "description": "A Kanye West themed new tab page with a latest news feed and a list of shows he will be performing at near you. Also, a Ye button.",
+    "version": "0.0.6",
 
     "chrome_url_overrides": {
       "newtab": "index.html"
     },
-    "icons": {"128": "assets/icon128.jpg", "48": "assets/icon48.jpg"},
+    "icons": {"128": "assets/icon128.png", "48": "assets/icon48.jpg"},
     "permissions": [
       "geolocation",
-      "storage"
+      "storage",
+      "tabs",
+      "http://www.google.com/*"
     ],
     "content_scripts": [ {
-        "matches": ["*://*/*"],
+        "matches": ["http://www.google.com/*"],
         "css": ["assets/application.css"],
         "js": ["lib/bundle.js"]
       } ]
