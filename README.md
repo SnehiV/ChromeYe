@@ -6,7 +6,7 @@ ChromeYe is a Google Chrome extension that provides a new tab page with a backgr
 
 - A latest news feed of articles related to Kanye
 - A list of shows where Kanye West will be performing at within 200 miles of your location
-- A 'Ye button' that will open a new tab at [kanyewest.com]
+- A 'Ye button' that will open a new tab with a randomly generated Kanye West video.
 
 [Chrome Store Link](https://chrome.google.com/webstore/detail/chromeye/bfflmlaplfjkbaecodimdfbjeohbdjng?hl=en-US)
 
@@ -17,7 +17,8 @@ It requests data from the following APIs:
 - [yepi.io](https://yepi.io/) for the background image and quote
 - [SeatGeek](http://platform.seatgeek.com/) for the concert data
 - [rss2Json](http://rss2json.com/) returns an RSS feed in JSON format
-    - [EIN Newsdesk][http://www.einnews.com/] for the Kanye West RSS feed
+    - [EIN Newsdesk](http://www.einnews.com/) for the Kanye West RSS feed
+- [Youtube Data API](https://developers.google.com/youtube/v3/) for video ids used for Embedly player
 - HTML5 geolocation API
 
 I chose to use a Redux framework because of the many API calls being made through
@@ -63,6 +64,8 @@ export const fetchConcerts = (success) => {
 
 In order reduce the amount of API calls made the extension uses ```javascript chrome.storage ```.
 The concert and news feed data is stored in the users local storage along with a time stamp of when it was stored. This data is updated every hour for the news feed and every day for the concert data by checking the current time when a new tab is open against the timestamp stored with the stored data.
+
+The video player is from [Embed.ly](http://embed.ly/) and I retrieve the youtube video ids form the Youtube data API. The randomly selected video id is interpolated into the Embed.ly player and when the "Ye Button" is clicked, the video opens in a new tab. The video id data is updated every 72 hours in order to make sure new videos are in the mix.
 
 ###To-Dos/Future
 - I will soon add a feature where the 'Ye Button' will play a random Kanye West song
